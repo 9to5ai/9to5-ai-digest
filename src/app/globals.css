@@ -1,26 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --accent: #3b82f6;
+  --accent-dim: #1e3a5f;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Digest content styling */
+.digest-content h1 { @apply text-3xl font-bold mb-6 text-white; }
+.digest-content h2 { @apply text-xl font-semibold mt-10 mb-4 text-blue-400 border-b border-gray-800 pb-2; }
+.digest-content h3 { @apply text-lg font-semibold mt-6 mb-3 text-gray-200; }
+
+.digest-content blockquote {
+  @apply border-l-4 border-blue-500 bg-blue-500/10 px-4 py-3 my-6 rounded-r-lg text-gray-300 italic;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.digest-content ul { @apply space-y-3 my-4; }
+.digest-content li { @apply text-gray-300 leading-relaxed pl-2; }
+.digest-content li::marker { @apply text-gray-600; }
+
+.digest-content a {
+  @apply text-blue-400 hover:text-blue-300 underline underline-offset-2 decoration-blue-400/30 hover:decoration-blue-300/60 transition break-all;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+.digest-content p { @apply my-3 text-gray-300 leading-relaxed; }
+
+.digest-content hr { @apply my-8 border-gray-800; }
+
+.digest-content strong { @apply text-white font-semibold; }
+.digest-content em { @apply text-gray-400; }
+.digest-content code { @apply text-xs bg-gray-800 px-1.5 py-0.5 rounded text-green-400 font-mono; }
